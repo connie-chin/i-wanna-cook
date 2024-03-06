@@ -1,20 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-  </header>
-  <main>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX Project</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="column-full">
+            <div class="icons">
+              <i class="fa-solid fa-house" style="color: #f7f7f7"></i>
+              <i class="fa-solid fa-utensils" style="color: #f7f7f7"></i>
+            </div>
+            <h1><em>iWannaCook</em></h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div data-view="home">
+          <!--view for home-->
+          <form>
+            <div class="row">
+              <div class="column-full">
+                <select name="health-label" id="health-label">
+                  <option value="">Search by health label...</option>
+                  <option value="Dairy-free">Dairy-free</option>
+                  <option value="Gluten-free">Gluten-free</option>
+                  <option value="Paleo">Paleo</option>
+                  <option value="Pescatarian">Pescatarian</option>
+                  <option value="Vegan">Vegan</option>
+                  <option value="Vegetarian">Vegetarian</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="recipe-container">
+        <div class="row">
+          <div class="column-full">
+            <ul>
+              <!--recipe container-->
+              <li class="column-one-fifth">
+                content to see how the box will fit on the page.
+              </li>
+              <li class="column-one-fifth">
+                more content to see how to boxes of info will fit on the page
+              </li>
+              <li class="column-one-fifth">
+                third box content to see how boxes will fit on page
+              </li>
+              <li class="column-one-fifth">
+                Fourth box of content to see how boxes willl fit on page
+              </li>
+              <li class="column-one-fifth">
+                Fifth box to of content to see how boxes will fit
+              </li>
+              <li class="column-one-fifth">
+                Sixth box to test how everything will fit if it needs to go
+                down.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div data-view="want-to-try" class="hidden">
+        <div class="want-to-try-container">
+          <div class="row">
+            <div class="column-full">
+              <h1><em>iWant2try</em></h1>
+              <div id="want-to-try-recipes"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

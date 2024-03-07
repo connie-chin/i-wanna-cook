@@ -32,12 +32,37 @@
     <main>
       <div class="container">
         <div data-view="home">
-          <!--view for home-->
           <form>
             <div class="row">
               <div class="column-full">
+                <select name="diet-label" id="diet-label">
+                  <option value="">Diet label...</option>
+                  <option value="Balanced">Balanced</option>
+                  <option value="High-fiber">High-fiber</option>
+                  <option value="High-protein">High-protein</option>
+                  <option value="Low-carb">Low-carb</option>
+                  <option value="Low-fat">Low-fat</option>
+                  <option value="Low-sodium">Low-sodium</option>
+                </select>
+                <select name="cuisine-type" id="cuisine-type">
+                  <option value="">Cuisine type...</option>
+                  <option value="American">American</option>
+                  <option value="Asian">Asian</option>
+                  <option value="Greek">Greek</option>
+                  <option value="Indian">Indian</option>
+                  <option value="Italian">Italian</option>
+                  <option value="Japanese">Japanese</option>
+                  <option value="Mediterranean">Mediterranean</option>
+                  <option value="Mexican">Mexican</option>
+                </select>
+                <select name="meal-type" id="meal-type">
+                  <option value="">Meal type...</option>
+                  <option value="Breakfast">Breakfast</option>
+                  <option value="Lunch">Lunch</option>
+                  <option value="Dinner">Dinner</option>
+                </select>
                 <select name="health-label" id="health-label">
-                  <option value="">Search by health label...</option>
+                  <option value="">Health label...</option>
                   <option value="Dairy-free">Dairy-free</option>
                   <option value="Gluten-free">Gluten-free</option>
                   <option value="Paleo">Paleo</option>
@@ -45,6 +70,11 @@
                   <option value="Vegan">Vegan</option>
                   <option value="Vegetarian">Vegetarian</option>
                 </select>
+                <button>
+                  <i
+                    class="fa-solid fa-magnifying-glass"
+                    style="color: #f7f7f7"></i>
+                </button>
               </div>
             </div>
           </form>
@@ -53,31 +83,16 @@
       <div class="recipe-container">
         <div class="row">
           <div class="column-full">
-            <ul>
-              <!--recipe container-->
-              <li class="column-one-fifth">
-                content to see how the box will fit on the page.
-              </li>
-              <li class="column-one-fifth">
-                more content to see how to boxes of info will fit on the page
-              </li>
-              <li class="column-one-fifth">
-                third box content to see how boxes will fit on page
-              </li>
-              <li class="column-one-fifth">
-                Fourth box of content to see how boxes willl fit on page
-              </li>
-              <li class="column-one-fifth">
-                Fifth box to of content to see how boxes will fit
-              </li>
-              <li class="column-one-fifth">
-                Sixth box to test how everything will fit if it needs to go
-                down.
-              </li>
-            </ul>
+            <ul></ul>
           </div>
         </div>
       </div>
+      <dialog class="hidden">
+        <h2>
+          There were no recipes that matched your selection, please try again.
+        </h2>
+        <button class="dismiss-modal">OK</button>
+      </dialog>
       <div data-view="want-to-try" class="hidden">
         <div class="want-to-try-container">
           <div class="row">

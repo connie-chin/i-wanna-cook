@@ -1,5 +1,5 @@
 .container {
-  max-width: 575px;
+  max-width: 768px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -13,6 +13,10 @@
 }
 
 .column-one-fifth {
-  width: 19%;
+  width: 40%;
   padding: 7px;
+}
+
+img {
+  width: 100%;
 }

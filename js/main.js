@@ -1,36 +1,18 @@
-interface Hit {
-  recipe: {
-    images: {
-      SMALL: {
-        url: string;
-      };
-    };
-    label: string;
-    url: string;
-  };
-}
-
+'use strict';
 const $form = document.querySelector('form');
-const $healthLabelDD = document.querySelector(
-  '#health-label',
-) as HTMLSelectElement;
-const $dietLabelDD = document.querySelector('#diet-label') as HTMLSelectElement;
-const $cuisineTypeDD = document.querySelector(
-  '#cuisine-type',
-) as HTMLSelectElement;
-const $mealTypeDD = document.querySelector('#meal-type') as HTMLSelectElement;
+const $healthLabelDD = document.querySelector('#health-label');
+const $dietLabelDD = document.querySelector('#diet-label');
+const $cuisineTypeDD = document.querySelector('#cuisine-type');
+const $mealTypeDD = document.querySelector('#meal-type');
 const $ul = document.querySelector('ul');
-
 const $dialog = document.querySelector('dialog');
 const $dismissModal = document.querySelector('.dismiss-modal');
-
-async function getRecipes(event: Event): Promise<void> {
+async function getRecipes(event) {
   event.preventDefault();
   const healthLabelChosen = $healthLabelDD?.value.toLowerCase();
   const dietLabelChosen = $dietLabelDD?.value.toLowerCase();
   const cuisineTypeChosen = $cuisineTypeDD?.value.toLowerCase();
   const mealTypeChosen = $mealTypeDD?.value.toLowerCase();
-
   if (
     !healthLabelChosen ||
     !dietLabelChosen ||
@@ -47,7 +29,6 @@ async function getRecipes(event: Event): Promise<void> {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json();
-
     if (data.hits.length > 0) {
       for (let i = 0; i < data.hits.length; i++) {
         $ul?.append(renderRecipes(data.hits[i]));
@@ -59,22 +40,19 @@ async function getRecipes(event: Event): Promise<void> {
     console.log('error fetching recipes: ', error);
   }
 }
-
 $form?.addEventListener('submit', getRecipes);
-
-function forClosingModal(): void {
+function forClosingModal() {
   $dialog?.setAttribute('class', 'hidden');
 }
 $dismissModal?.addEventListener('click', forClosingModal);
-
-function renderRecipes(entry: Hit): HTMLLIElement {
-  const $li = document.createElement('li') as HTMLLIElement;
+function renderRecipes(entry) {
+  const $li = document.createElement('li');
   $li.setAttribute('class', 'column-one-fifth');
-  const $img = document.createElement('img') as HTMLImageElement;
+  const $img = document.createElement('img');
   $img.setAttribute('src', `${entry.recipe.images.SMALL.url}`);
   $li.append($img);
-  const $p = document.createElement('p') as HTMLParagraphElement;
-  const $a = document.createElement('a') as HTMLAnchorElement;
+  const $p = document.createElement('p');
+  const $a = document.createElement('a');
   $a.setAttribute('href', `${entry.recipe.url}`);
   $a.setAttribute('target', '_blank');
   $a.textContent = `${entry.recipe.label}`;

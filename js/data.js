@@ -1,26 +1,9 @@
-/* exported data */
-interface Hit {
-  recipe: {
-    images: {
-      SMALL: {
-        url: string;
-      };
-    };
-    label: string;
-    url: string;
-  };
-}
-
-interface Data {
-  savedRecipes: Hit[];
-}
-
-let data: Data = {
+'use strict';
+let data = {
   savedRecipes: [],
 };
-
 const previousDataJSON = localStorage.getItem('i-wanna-cook-local-storage');
-function forBeforeUnload(): void {
+function forBeforeUnload() {
   const dataJSON = JSON.stringify(data);
   localStorage.setItem('i-wanna-cook-local-storage', dataJSON);
 }

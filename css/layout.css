@@ -1,0 +1,22 @@
+.container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.row {
+  flex-wrap: wrap;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.column-one-fifth {
+  width: 40%;
+  padding: 7px;
+}
+
+img {
+  width: 100%;
+}

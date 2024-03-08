@@ -12,19 +12,27 @@ interface Hit {
 }
 
 interface Data {
+  entryId: number;
+  view: string;
+  // editing: null;
   savedRecipes: Hit[];
 }
 
-let data: Data = {
+const dataFromObject: Data = {
+  entryId: 1,
+  view: '',
+  // editing: null,
   savedRecipes: [],
 };
 
-const previousDataJSON = localStorage.getItem('i-wanna-cook-local-storage');
+const previousRecipesJSON = localStorage.getItem('i-wanna-cook-local-storage');
+
+if (previousRecipesJSON !== null) {
+  dataFromObject.savedRecipes = JSON.parse(previousRecipesJSON);
+}
+
 function forBeforeUnload(): void {
-  const dataJSON = JSON.stringify(data);
-  localStorage.setItem('i-wanna-cook-local-storage', dataJSON);
+  const recipesJSON = JSON.stringify(dataFromObject.savedRecipes);
+  localStorage.setItem('i-wanna-cook-local-storage', recipesJSON);
 }
 window.addEventListener('beforeunload', forBeforeUnload);
-if (previousDataJSON !== null) {
-  data = JSON.parse(previousDataJSON);
-}

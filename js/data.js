@@ -1,5 +1,5 @@
 'use strict';
-let dataFromObject = {
+const dataFromObject = {
   entryId: 1,
   view: '',
   // editing: null,

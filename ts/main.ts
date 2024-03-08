@@ -54,7 +54,7 @@ const $wantToTryView = document.querySelector(
 const $utensilsIcon = document.querySelector('.fa-utensils') as HTMLElement;
 
 const $homeIcon = document.querySelector('.fa-house') as HTMLElement;
-// const $ulForSavedRecipes = document.querySelector('#for-want-to-try');
+const $ulForSavedRecipes = document.querySelector('#for-want-to-try');
 
 async function getRecipes(event: Event): Promise<void> {
   event.preventDefault();
@@ -112,11 +112,15 @@ function forRecipeContainer(event: Event): void {
     for (let i = 0; i < dataFromApi.hits.length; i++) {
       if (recipeLabel === dataFromApi.hits[i].recipe.label) {
         console.log('datafrom api hits', dataFromApi.hits[i].recipe);
-        // dataFromObject.savedRecipes.push(dataFromApi.hits[i].recipe);
-        // savedRecipesGenerator();
+        dataFromObject.savedRecipes.push(dataFromApi.hits[i].recipe);
       }
     }
   }
+  // console.log('here once');
+  // console.log('datafromObject:', dataFromObject.savedRecipes);
+  savedRecipesGenerator();
+  // const newImgUrl = dataFromObject.savedRecipes[9].images.SMALL.url;
+  // console.log('newimg', newImgUrl);
 }
 
 $recipeContainer?.addEventListener('click', forRecipeContainer);
@@ -146,25 +150,25 @@ function forUtensilsIconClick(): void {
 }
 $utensilsIcon?.addEventListener('click', forUtensilsIconClick);
 
-// function savedRecipesGenerator() {
-//   for (let i=0; i < dataFromObject.savedRecipes.length; i++) {
-//   const $liNew = document.createElement('li') as HTMLLIElement;
-//   $liNew.setAttribute('class', 'column-one-fifth');
-//   const newImgUrl = dataFromObject.savedRecipes[i].recipe.images.SMALL.url;
-//   const $newImg = document.createElement('img') as HTMLImageElement;
-//   $newImg.setAttribute('src', newImgUrl);
-//   $liNew.append($newImg);
-//   const $pNew = document.createElement('p') as HTMLParagraphElement;
-//   const $aNew = document.createElement('a') as HTMLAnchorElement;
-//   const newA = dataFromObject.savedRecipes[i].recipe.url;
-//   $aNew.setAttribute('href', `${newA}`);
-//   $aNew.setAttribute('target', 'blank');
-//   $aNew.textContent = dataFromObject.savedRecipes[i].recipe.label;
-//   $pNew.append($aNew);
-//   $liNew.append($pNew);
-//   $ulForSavedRecipes?.append($liNew);
-//   }
-// }
+function savedRecipesGenerator(): void {
+  for (let i = 0; i < dataFromObject.savedRecipes.length; i++) {
+    const $liNew = document.createElement('li') as HTMLLIElement;
+    $liNew.setAttribute('class', 'column-one-fifth');
+    const newImgUrl = dataFromObject.savedRecipes[i].images.SMALL.url;
+    const $newImg = document.createElement('img') as HTMLImageElement;
+    $newImg.setAttribute('src', newImgUrl);
+    $liNew.append($newImg);
+    const $pNew = document.createElement('p') as HTMLParagraphElement;
+    const $aNew = document.createElement('a') as HTMLAnchorElement;
+    const newA = dataFromObject.savedRecipes[i].url;
+    $aNew.setAttribute('href', `${newA}`);
+    $aNew.setAttribute('target', 'blank');
+    $aNew.textContent = dataFromObject.savedRecipes[i].label;
+    $pNew.append($aNew);
+    $liNew.append($pNew);
+    $ulForSavedRecipes?.append($liNew);
+  }
+}
 
 function forClosingModal(): void {
   $dialog?.setAttribute('class', 'hidden');

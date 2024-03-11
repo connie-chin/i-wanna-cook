@@ -1,4 +1,5 @@
-.container {
+.container,
+.want-to-try-container {
   max-width: 768px;
   margin: 0 auto;
   padding: 0 1.5rem;

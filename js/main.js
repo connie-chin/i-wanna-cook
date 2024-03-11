@@ -1,16 +1,4 @@
 'use strict';
-// interface RecipeObject {
-//   label: string;
-//   imgUrl: string;
-//   recipeUrl: string;
-// }
-// console.log('datafromobject', dataFromObject);
-// interface Values {
-//   dietLabelDD: string;
-//   cuisineTypeDD: string;
-//   mealTypeDD: string;
-//   healthLabelDD: string;
-// }
 let dataFromApi;
 const $form = document.querySelector('form');
 const $healthLabelDD = document.querySelector('#health-label');
@@ -49,7 +37,7 @@ async function getRecipes(event) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     dataFromApi = await response.json();
-    // console.log('dataFromApi:', dataFromApi);
+    $ul.textContent = '';
     if (dataFromApi.hits.length > 0) {
       for (let i = 0; i < dataFromApi.hits.length; i++) {
         $ul?.append(renderRecipes(dataFromApi.hits[i]));
@@ -68,25 +56,16 @@ async function getRecipes(event) {
 }
 $form?.addEventListener('submit', getRecipes);
 function forRecipeContainer(event) {
-  // console.log('recipe container clicked');
   if (event.target?.tagName === 'BUTTON') {
-    console.log('save button was clicked');
     const li = event.target.closest('li');
-    // console.log('li', li);
     const recipeLabel = li.querySelector('a').textContent;
-    console.log('recipe label:', recipeLabel);
     for (let i = 0; i < dataFromApi.hits.length; i++) {
       if (recipeLabel === dataFromApi.hits[i].recipe.label) {
-        console.log('datafrom api hits', dataFromApi.hits[i].recipe);
         dataFromObject.savedRecipes.push(dataFromApi.hits[i].recipe);
       }
     }
   }
-  // console.log('here once');
-  // console.log('datafromObject:', dataFromObject.savedRecipes);
   savedRecipesGenerator();
-  // const newImgUrl = dataFromObject.savedRecipes[9].images.SMALL.url;
-  // console.log('newimg', newImgUrl);
 }
 $recipeContainer?.addEventListener('click', forRecipeContainer);
 function viewSwap(view) {
@@ -99,18 +78,17 @@ function viewSwap(view) {
   }
 }
 function forHomeIconClick() {
-  console.log('home clicked');
   dataFromObject.view = 'home';
   viewSwap('home');
 }
 $homeIcon?.addEventListener('click', forHomeIconClick);
 function forUtensilsIconClick() {
-  console.log('utensils clicked');
   dataFromObject.view = 'want-to-try';
   viewSwap('want-to-try');
 }
 $utensilsIcon?.addEventListener('click', forUtensilsIconClick);
 function savedRecipesGenerator() {
+  $ulForSavedRecipes.textContent = '';
   for (let i = 0; i < dataFromObject.savedRecipes.length; i++) {
     const $liNew = document.createElement('li');
     $liNew.setAttribute('class', 'column-one-fifth');
@@ -129,6 +107,9 @@ function savedRecipesGenerator() {
     $ulForSavedRecipes?.append($liNew);
   }
 }
+document.addEventListener('DOMContentLoaded', function () {
+  savedRecipesGenerator();
+});
 function forClosingModal() {
   $dialog?.setAttribute('class', 'hidden');
 }
@@ -140,6 +121,7 @@ function renderRecipes(entry) {
   $img.setAttribute('src', `${entry.recipe.images.SMALL.url}`);
   $li.append($img);
   const $p = document.createElement('p');
+  $p.setAttribute('class', 'label');
   const $a = document.createElement('a');
   $a.setAttribute('href', `${entry.recipe.url}`);
   $a.setAttribute('target', '_blank');
@@ -147,27 +129,8 @@ function renderRecipes(entry) {
   $p.append($a);
   $li.append($p);
   const $button = document.createElement('button');
-  // $button.setAttribute('class', 'hidden');
   $button.setAttribute('id', 'save-button');
-  // const $i = document.createElement('i') as HTMLElement; //why is this not appending??!
-  // $i.setAttribute('class', 'fa-solid fa-bookmark');
-  // $i.setAttribute('style', 'color: rbg(52, 154, 213)');
-  // $button.append($i);
   $button.innerHTML = `<i class="fa-solid fa-bookmark" style="color: rgb(52, 154, 213)"></i>Save`;
-  // $button.textContent = 'Save';
   $li.append($button);
   return $li;
 }
-// const $recipeCard = document.querySelector('li');
-// function forMouseOverOnRecipeCard (event: Event) {
-//   console.log('mouseoverevent triggered');
-//   const $saveButton = document.querySelector('#save-button');
-//   if ($saveButton) $saveButton.className =''; //if save button is truthy
-// }
-// function forMouseOverExit (event: Event) {
-//   console.log('mouseoveexit triggered');
-//   const $saveButton = document.querySelector('#save-button');
-//   if ($saveButton) $saveButton.className ='hidden'; //if save button is truthy
-// }
-// $recipeCard?.addEventListener('mouseleave', forMouseOverExit);
-// $recipeCard?.addEventListener('mouseenter', forMouseOverOnRecipeCard);

@@ -37,9 +37,13 @@ button {
   background-color: rgb(52, 154, 213);
   border-radius: 10px;
   border: 2px solid rgb(52, 154, 213);
+  cursor: pointer;
 }
 
-button :hover,
+/* #like-button:hover {
+  background-color: red;
+} */
+
 a :hover,
 .icons :hover {
   cursor: pointer;
@@ -70,27 +74,34 @@ dialog {
   width: 60%;
 }
 
-.dismiss-modal {
+/* .dismiss-modal {
   cursor: pointer;
-}
+} */
 
-#save-button {
+#save-button,
+#like-button {
   background-color: white;
   border-color: rgb(52, 154, 213);
   justify-content: flex-end;
 }
 
-#save-button :hover {
+/* #save-button :hover {
   cursor: pointer;
   color: white;
-}
+} */
 
 a:hover {
   cursor: pointer;
 }
 
-.label {
+.label,
+p {
   height: 100px;
+}
+
+div#emojis > img {
+  height: 25px;
+  width: 25px;
 }
 
 @media (min-width: 768px) {

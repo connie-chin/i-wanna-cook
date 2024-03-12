@@ -8,6 +8,7 @@ interface Hit {
     };
     label: string;
     url: string;
+    emoji: string | undefined;
   };
 }
 

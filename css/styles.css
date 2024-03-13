@@ -78,8 +78,12 @@ dialog {
   cursor: pointer;
 } */
 
-#save-button,
-#like-button {
+button i {
+  pointer-events: none;
+}
+
+.save-button
+/* #like-button, */ {
   background-color: white;
   border-color: rgb(52, 154, 213);
   justify-content: flex-end;
@@ -102,6 +106,11 @@ p {
 div#emojis > img {
   height: 25px;
   width: 25px;
+}
+
+div#emojis {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 768px) {

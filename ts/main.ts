@@ -45,6 +45,7 @@ const $homeIcon = document.querySelector('.fa-house') as HTMLElement;
 const $ulForSavedRecipes = document.querySelector('#for-want-to-try');
 
 async function getRecipes(event: Event): Promise<void> {
+  console.log('magnifying glass clicked');
   event.preventDefault();
   const healthLabelChosen = $healthLabelDD?.value.toLowerCase();
   const dietLabelChosen = $dietLabelDD?.value.toLowerCase();
@@ -88,7 +89,9 @@ async function getRecipes(event: Event): Promise<void> {
 $form?.addEventListener('submit', getRecipes);
 
 function forRecipeContainer(event: Event): void {
+  console.log(event.target.tagName);
   if (event.target?.tagName === 'BUTTON') {
+    console.log('save clicked');
     const li = event.target.closest('li');
     const recipeLabel = li.querySelector('a').textContent;
 
@@ -147,7 +150,6 @@ function savedRecipesGenerator(): void {
     $liNew.append($pNew);
     const $divForEmojis = document.createElement('div') as HTMLDivElement;
     $divForEmojis.setAttribute('id', 'emojis');
-    $divForEmojis.setAttribute('class', 'hidden');
     if (dataFromObject.savedRecipes[i].emoji === undefined) {
       const $emojiImg1 = document.createElement('img') as HTMLImageElement;
       $emojiImg1.setAttribute('class', 'yummy');
@@ -198,29 +200,21 @@ function savedRecipesGenerator(): void {
       );
       $divForEmojis.append($emojiImg3);
     }
+    const $trashButton = document.createElement('button') as HTMLButtonElement;
+    const $iTrash = document.createElement('i') as HTMLElement;
+    $trashButton.setAttribute('id', 'trash-button');
+    $iTrash.setAttribute('class', 'fa-regular fa-trash-can');
+    $iTrash.setAttribute('style', 'color: #f7f7f7');
+    $trashButton.append($iTrash);
     $liNew.append($divForEmojis);
-    const $likeButton = document.createElement('button') as HTMLButtonElement;
-    $likeButton.setAttribute('id', 'like-button');
-    $likeButton.innerHTML = `<i class="fa-solid fa-thumbs-up" style="color: rgb(52, 154, 213)"></i>Like`;
-    $liNew.append($likeButton);
+    $divForEmojis.append($trashButton);
     $ulForSavedRecipes?.append($liNew);
   }
 }
 
 function forWantToTryContainer(event: Event): void {
   const eventTarget = event.target;
-  if (eventTarget.tagName === 'BUTTON') {
-    const li = eventTarget.closest('li');
-    const recipeLabel = li.querySelector('p').textContent;
-    for (let i = 0; i < dataFromObject.savedRecipes.length; i++) {
-      if (recipeLabel === dataFromObject.savedRecipes[i].label) {
-        const $forEmojis = li.querySelector('#emojis');
-        $forEmojis.classList = '';
-        const $likeButton = li.querySelector('#like-button');
-        $likeButton.setAttribute('class', 'hidden');
-      }
-    }
-  } else if (eventTarget.tagName === 'IMG') {
+  if (eventTarget.tagName === 'IMG') {
     const li = eventTarget.closest('li');
     const $yummyEmoji = li.querySelector('.yummy');
     const $whateverEmoji = li.querySelector('.whatever');
@@ -253,16 +247,18 @@ function forWantToTryContainer(event: Event): void {
         }
       }
     }
+  } else if (eventTarget.tagName === 'BUTTON') {
+    const li = eventTarget.closest('li');
+    const recipeLabel = li.querySelector('p').textContent;
+    for (let i = 0; i < dataFromObject.savedRecipes.length; i++) {
+      if (recipeLabel === dataFromObject.savedRecipes[i].label) {
+        dataFromObject.savedRecipes.splice(i, 1);
+      }
+    }
+    li.remove();
   }
 }
 $wantToTryContainer.addEventListener('click', forWantToTryContainer);
-
-// const $yummyEmoji = document.querySelector('.yummy');
-
-// function forYummy(event: Event) {
-//   console.log('yummy clicked');
-// }
-// $yummyEmoji?.addEventListener('click', forYummy);
 
 document.addEventListener('DOMContentLoaded', function () {
   savedRecipesGenerator();
@@ -288,7 +284,7 @@ function renderRecipes(entry: Hit): HTMLLIElement {
   $p.append($a);
   $li.append($p);
   const $button = document.createElement('button') as HTMLButtonElement;
-  $button.setAttribute('id', 'save-button');
+  $button.setAttribute('class', 'save-button');
   $button.innerHTML = `<i class="fa-solid fa-bookmark" style="color: rgb(52, 154, 213)"></i>Save`;
   $li.append($button);
   return $li;

@@ -13,16 +13,12 @@ interface Hit {
 }
 
 interface Data {
-  entryId: number;
   view: string;
-  // editing: null;
   savedRecipes: Hit[];
 }
 
 const dataFromObject: Data = {
-  entryId: 1,
   view: '',
-  // editing: null,
   savedRecipes: [],
 };
 

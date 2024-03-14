@@ -32,7 +32,6 @@ const $homeIcon = document.querySelector('.fa-house') as HTMLElement;
 const $ulForSavedRecipes = document.querySelector('#for-want-to-try');
 
 async function getRecipes(event: Event): Promise<void> {
-  console.log('magnifying glass clicked');
   event.preventDefault();
   const healthLabelChosen = $healthLabelDD?.value.toLowerCase();
   const dietLabelChosen = $dietLabelDD?.value.toLowerCase();
@@ -76,9 +75,7 @@ async function getRecipes(event: Event): Promise<void> {
 $form?.addEventListener('submit', getRecipes);
 
 function forRecipeContainer(event: Event): void {
-  console.log(event.target.tagName);
   if (event.target?.tagName === 'BUTTON') {
-    console.log('save clicked');
     const li = event.target.closest('li');
     const recipeLabel = li.querySelector('a').textContent;
 

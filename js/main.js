@@ -16,7 +16,6 @@ const $utensilsIcon = document.querySelector('.fa-utensils');
 const $homeIcon = document.querySelector('.fa-house');
 const $ulForSavedRecipes = document.querySelector('#for-want-to-try');
 async function getRecipes(event) {
-  console.log('magnifying glass clicked');
   event.preventDefault();
   const healthLabelChosen = $healthLabelDD?.value.toLowerCase();
   const dietLabelChosen = $dietLabelDD?.value.toLowerCase();
@@ -57,9 +56,7 @@ async function getRecipes(event) {
 }
 $form?.addEventListener('submit', getRecipes);
 function forRecipeContainer(event) {
-  console.log(event.target.tagName);
   if (event.target?.tagName === 'BUTTON') {
-    console.log('save clicked');
     const li = event.target.closest('li');
     const recipeLabel = li.querySelector('a').textContent;
     for (let i = 0; i < dataFromApi.hits.length; i++) {

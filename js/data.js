@@ -1,8 +1,6 @@
 'use strict';
 const dataFromObject = {
-  entryId: 1,
   view: '',
-  // editing: null,
   savedRecipes: [],
 };
 const previousRecipesJSON = localStorage.getItem('i-wanna-cook-local-storage');

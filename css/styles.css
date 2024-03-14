@@ -1,5 +1,6 @@
 body {
-  background-color: rgb(91, 215, 118);
+  /* background-color: rgb(91, 215, 118); */
+  background-color: rgb(75, 198, 132);
 }
 
 h1 {
@@ -40,10 +41,6 @@ button {
   cursor: pointer;
 }
 
-/* #like-button:hover {
-  background-color: red;
-} */
-
 a :hover,
 .icons :hover {
   cursor: pointer;
@@ -71,28 +68,18 @@ dialog {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  width: 60%;
+  width: 55%;
 }
-
-/* .dismiss-modal {
-  cursor: pointer;
-} */
 
 button i {
   pointer-events: none;
 }
 
-.save-button
-/* #like-button, */ {
+.save-button {
   background-color: white;
   border-color: rgb(52, 154, 213);
   justify-content: flex-end;
 }
-
-/* #save-button :hover {
-  cursor: pointer;
-  color: white;
-} */
 
 a:hover {
   cursor: pointer;

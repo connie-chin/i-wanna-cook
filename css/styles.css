@@ -31,6 +31,7 @@ select {
   padding-right: 30px;
   border-radius: 10px;
   width: calc(100% / 4.5);
+  cursor: pointer;
 }
 
 button {
@@ -40,8 +41,12 @@ button {
   cursor: pointer;
 }
 
-a :hover,
-.icons :hover {
+button i {
+  pointer-events: none;
+}
+
+a:hover,
+.icons > i:hover {
   cursor: pointer;
   color: white;
 }
@@ -77,10 +82,6 @@ dialog {
 
 .dismiss-modal:hover {
   transform: scale(1.2);
-}
-
-button i {
-  pointer-events: none;
 }
 
 .search-button:hover {

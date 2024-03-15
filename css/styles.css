@@ -48,7 +48,6 @@ button i {
 a:hover,
 .icons > i:hover {
   cursor: pointer;
-  color: white;
 }
 
 .icons {

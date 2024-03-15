@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(91, 215, 118);
+  background-color: rgb(166, 219, 166);
 }
 
 h1 {
@@ -7,7 +7,7 @@ h1 {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   display: flex;
   justify-content: center;
-  color: #f7f7f7;
+  color: rgb(239, 227, 171);
   text-shadow: 2px 2px 4px rgb(52, 154, 213);
 }
 
@@ -51,6 +51,7 @@ a :hover,
   justify-content: space-between;
   font-size: 30px;
   margin-top: 20px;
+  transition: 0.3s;
 }
 
 li {
@@ -70,18 +71,55 @@ dialog {
   width: 55%;
 }
 
+.dismiss-modal {
+  transition: 0.3s;
+}
+
+.dismiss-modal:hover {
+  transform: scale(1.2);
+}
+
 button i {
   pointer-events: none;
+}
+
+.search-button:hover {
+  transition: 0.5s;
+  transform: scale(1.2);
 }
 
 .save-button {
   background-color: white;
   border-color: rgb(52, 154, 213);
-  justify-content: flex-end;
 }
 
-a:hover {
+.save-button:hover {
+  background-color: rgb(239, 227, 171);
+}
+
+div#for-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+div#emojis > img {
+  height: 25px;
+  width: 25px;
+  transition: 0.3s;
+}
+
+.trash-button {
+  transition: 0.3s;
+}
+
+div#emojis > img:hover {
   cursor: pointer;
+}
+
+.icons > i:hover,
+.trash-button:hover,
+div#emojis > img:hover {
+  transform: scale(1.2);
 }
 
 .label,
@@ -89,14 +127,9 @@ p {
   height: 100px;
 }
 
-div#emojis > img {
-  height: 25px;
-  width: 25px;
-}
-
-div#emojis {
-  display: flex;
-  justify-content: space-between;
+.trash-button:hover {
+  background-color: red;
+  border-color: red;
 }
 
 @media (min-width: 768px) {

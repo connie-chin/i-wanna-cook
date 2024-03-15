@@ -48,7 +48,6 @@ async function getRecipes(event) {
   } catch (error) {
     console.log('error fetching recipes: ', error);
   }
-  // clear the search field here?
   $healthLabelDD.value = '';
   $dietLabelDD.value = '';
   $cuisineTypeDD.value = '';
@@ -108,6 +107,7 @@ function savedRecipesGenerator() {
     liNew.append(pNew);
     const divForBottom = document.createElement('div');
     divForBottom.setAttribute('class', 'row');
+    divForBottom.setAttribute('id', 'for-bottom');
     const divForEmojis = document.createElement('div');
     divForEmojis.setAttribute('id', 'emojis');
     if (dataFromObject.savedRecipes[i].emoji === undefined) {
@@ -160,14 +160,17 @@ function savedRecipesGenerator() {
       );
       divForEmojis.append(emojiImg3);
     }
+    const divForTrash = document.createElement('div');
     const trashButton = document.createElement('button');
     const iTrash = document.createElement('i');
     trashButton.setAttribute('class', 'trash-button');
     iTrash.setAttribute('class', 'fa-regular fa-trash-can');
     iTrash.setAttribute('style', 'color: #f7f7f7');
     trashButton.append(iTrash);
-    liNew.append(divForEmojis);
-    divForEmojis.append(trashButton);
+    liNew.append(divForBottom);
+    divForTrash.append(trashButton);
+    divForBottom.append(divForEmojis);
+    divForBottom.append(divForTrash);
     $ulForSavedRecipes?.append(liNew);
   }
 }

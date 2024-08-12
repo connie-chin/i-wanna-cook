@@ -1,13 +1,13 @@
 body {
-  background-color: rgb(166, 219, 166);
+  background-color: #087356;
 }
 
 h1 {
   font-size: 40px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   display: flex;
   justify-content: center;
-  color: rgb(239, 227, 171);
+  color: #f3cc89;
   text-shadow: 2px 2px 4px rgb(52, 154, 213);
 }
 

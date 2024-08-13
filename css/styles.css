@@ -4,7 +4,7 @@ body {
 
 h1 {
   font-size: 40px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   display: flex;
   justify-content: center;
   color: #f3cc89;
@@ -24,14 +24,24 @@ ul {
   display: flex;
   list-style-type: none;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+#for-want-to-try {
+  display: flex;
+  justify-content: start;
 }
 
 select {
-  padding: 5px;
+  padding: 8px;
   padding-right: 30px;
   border-radius: 10px;
-  width: calc(100% / 4.5);
+
+  /* width: calc(100% / 4.5); */
+  width: 100%;
   cursor: pointer;
+  margin: 5px;
+  font-size: medium;
 }
 
 button {
@@ -39,10 +49,16 @@ button {
   border-radius: 10px;
   border: 2px solid rgb(52, 154, 213);
   cursor: pointer;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
 }
 
 button i {
   pointer-events: none;
+
+  /* background-color: #087356; */
+  font-size: x-large;
 }
 
 a:hover,
@@ -58,12 +74,17 @@ a:hover,
   transition: 0.3s;
 }
 
-li {
+.column-one-fourth {
   background-color: white;
-  margin-bottom: 8px;
   border-radius: 10px;
-  padding-bottom: 10px;
-  margin-right: 5px;
+
+  /* padding-bottom: 10px; */
+  margin: 8px;
+  padding: 10px;
+
+  /* margin-right: 5px; */
+
+  width: 80%;
 }
 
 dialog {
@@ -91,6 +112,7 @@ dialog {
 .save-button {
   background-color: white;
   border-color: rgb(52, 154, 213);
+  font-size: medium;
 }
 
 .save-button:hover {
@@ -133,8 +155,8 @@ p {
 }
 
 @media (min-width: 768px) {
-  .column-one-fifth {
-    width: 19%;
+  .column-one-fourth {
+    width: 20%;
   }
 
   h1 {

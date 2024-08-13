@@ -118,7 +118,7 @@ function savedRecipesGenerator(): void {
   $ulForSavedRecipes.textContent = '';
   for (let i = 0; i < dataFromObject.savedRecipes.length; i++) {
     const liNew = document.createElement('li') as HTMLLIElement;
-    liNew.setAttribute('class', 'column-one-fifth');
+    liNew.setAttribute('class', 'column-one-fourth');
     const newImgUrl = dataFromObject.savedRecipes[i].images.SMALL.url;
     const newImg = document.createElement('img') as HTMLImageElement;
     newImg.setAttribute('src', newImgUrl);
@@ -259,7 +259,7 @@ $dismissModal?.addEventListener('click', forClosingModal);
 
 function renderRecipes(entry: Hit): HTMLLIElement {
   const li = document.createElement('li') as HTMLLIElement;
-  li.setAttribute('class', 'column-one-fifth');
+  li.setAttribute('class', 'column-one-fourth');
   const img = document.createElement('img') as HTMLImageElement;
   img.setAttribute('src', `${entry.recipe.images.SMALL.url}`);
   li.append(img);

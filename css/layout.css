@@ -1,20 +1,21 @@
 .container,
 .want-to-try-container {
-  max-width: 768px;
+  /* max-width: 768px; */
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-.row {
+/* .row {
   flex-wrap: wrap;
-}
+} */
 
 .column-full {
   width: 100%;
 }
 
 .column-one-fifth {
-  width: 40%;
+  width: 80%;
   padding: 7px;
 }
 

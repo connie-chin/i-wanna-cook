@@ -4,7 +4,7 @@ body {
 
 h1 {
   font-size: 40px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   display: flex;
   justify-content: center;
   color: #f3cc89;
@@ -25,22 +25,25 @@ ul {
   list-style-type: none;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0;
 }
 
 #for-want-to-try {
   display: flex;
-  justify-content: start;
+  justify-content: center;
 }
 
 select {
   padding: 8px;
-  padding-right: 30px;
+  padding-right: 30;
   border-radius: 10px;
 
   /* width: calc(100% / 4.5); */
+
   width: 100%;
   cursor: pointer;
   margin: 5px;
+  margin-left: auto;
   font-size: medium;
 }
 
@@ -69,7 +72,7 @@ a:hover,
 .icons {
   display: flex;
   justify-content: space-between;
-  font-size: 30px;
+  font-size: 60px;
   margin-top: 20px;
   transition: 0.3s;
 }
@@ -101,12 +104,14 @@ dialog {
 }
 
 .dismiss-modal:hover {
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
+  background-color: rgb(43, 130, 180);
+  border: 2px solid rgb(43, 130, 180);
 }
 
 .search-button:hover {
-  transition: 0.5s;
-  transform: scale(1.2);
+  background-color: rgb(43, 130, 180);
+  border: 2px solid rgb(43, 130, 180);
 }
 
 .save-button {
@@ -146,7 +151,8 @@ div#emojis > img:hover {
 
 .label,
 p {
-  height: 100px;
+  height: 50px;
+  font-size: large;
 }
 
 .trash-button:hover {
@@ -157,6 +163,7 @@ p {
 @media (min-width: 768px) {
   .column-one-fourth {
     width: 20%;
+    margin: 25px;
   }
 
   h1 {
@@ -165,5 +172,20 @@ p {
 
   .icons {
     font-size: 60px;
+  }
+
+  #for-want-to-try,
+  #recipe-container {
+    justify-content: flex-start;
+  }
+
+  ul {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .label,
+  p {
+    height: 100px;
   }
 }

@@ -1,22 +1,18 @@
 .container,
 .want-to-try-container {
   /* max-width: 768px; */
-  max-width: 80%;
+
+  max-width: 1070px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
-
-/* .row {
-  flex-wrap: wrap;
-} */
 
 .column-full {
   width: 100%;
 }
 
-.column-one-fifth {
-  width: 80%;
-  padding: 7px;
+#want-to-try-recipes {
+  display: flex;
 }
 
 img {

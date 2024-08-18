@@ -77,12 +77,14 @@ function forRecipeContainer(event: Event): void {
   if (event.target?.tagName === 'BUTTON') {
     const li = event.target.closest('li');
     const recipeLabel = li.querySelector('a').textContent;
+    console.log('saved card clicked');
 
     for (let i = 0; i < dataFromApi.hits.length; i++) {
       if (recipeLabel === dataFromApi.hits[i].recipe.label) {
         const recipe = dataFromApi.hits[i].recipe;
         recipe.emoji = undefined;
         dataFromObject.savedRecipes.push(recipe);
+        console.log(`${recipe.name} saved`);
       }
     }
   }

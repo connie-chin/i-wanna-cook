@@ -3,7 +3,7 @@ body {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 60px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   display: flex;
   justify-content: center;
@@ -37,13 +37,9 @@ select {
   padding: 8px;
   padding-right: 30;
   border-radius: 10px;
-
-  /* width: calc(100% / 4.5); */
-
   width: 100%;
   cursor: pointer;
   margin: 5px;
-  margin-left: auto;
   font-size: medium;
 }
 
@@ -59,8 +55,6 @@ button {
 
 button i {
   pointer-events: none;
-
-  /* background-color: #087356; */
   font-size: x-large;
 }
 
@@ -80,13 +74,8 @@ a:hover,
 .column-one-fourth {
   background-color: white;
   border-radius: 10px;
-
-  /* padding-bottom: 10px; */
   margin: 8px;
   padding: 10px;
-
-  /* margin-right: 5px; */
-
   width: 80%;
 }
 
@@ -104,7 +93,6 @@ dialog {
 }
 
 .dismiss-modal:hover {
-  /* transform: scale(1.2); */
   background-color: rgb(43, 130, 180);
   border: 2px solid rgb(43, 130, 180);
 }
@@ -130,12 +118,8 @@ div#for-bottom {
 }
 
 div#emojis > img {
-  height: 25px;
-  width: 25px;
-  transition: 0.3s;
-}
-
-.trash-button {
+  height: 42px;
+  width: 42px;
   transition: 0.3s;
 }
 
@@ -144,7 +128,6 @@ div#emojis > img:hover {
 }
 
 .icons > i:hover,
-.trash-button:hover,
 div#emojis > img:hover {
   transform: scale(1.2);
 }
@@ -162,12 +145,8 @@ p {
 
 @media (min-width: 768px) {
   .column-one-fourth {
-    width: 20%;
-    margin: 25px;
-  }
-
-  h1 {
-    font-size: 60px;
+    width: 27%;
+    margin: 23px;
   }
 
   .icons {
@@ -181,11 +160,18 @@ p {
 
   ul {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .label,
   p {
     height: 100px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .column-one-fourth {
+    width: 20%;
+    margin: 25px;
   }
 }

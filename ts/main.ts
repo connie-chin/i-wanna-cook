@@ -75,6 +75,8 @@ $form?.addEventListener('submit', getRecipes);
 
 function forRecipeContainer(event: Event): void {
   if (event.target?.tagName === 'BUTTON') {
+    const button = event.target;
+    button.style.backgroundColor = 'rgb(239, 227, 171)';
     const li = event.target.closest('li');
     const recipeLabel = li.querySelector('a').textContent;
     console.log('saved card clicked');
@@ -84,7 +86,6 @@ function forRecipeContainer(event: Event): void {
         const recipe = dataFromApi.hits[i].recipe;
         recipe.emoji = undefined;
         dataFromObject.savedRecipes.push(recipe);
-        console.log(`${recipe.name} saved`);
       }
     }
   }
